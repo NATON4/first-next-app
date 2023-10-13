@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 10vh;
+    background-color: #2d2d2d;
+}
+
+.mail {
+    text-decoration: none;
+    text-underline: none;
+    color: white;
+    padding-right: 2vw;
+}
+
+.mail:hover {
+    color: #752fe4;
+}

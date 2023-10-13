@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import style from '../../styles/static-page.module.css';
-import { useState } from 'react';
+import {useState} from 'react';
+import '../../styles/global.css';
+import Layout from '../../components/Layout';
 
 interface StaticData {
     getStaticData(): Promise<string>;
@@ -33,13 +35,15 @@ class StaticDataProxy implements StaticData {
     }
 }
 
-function StaticPage({ staticData }: StaticPageProps) {
+function StaticPage({staticData}: StaticPageProps) {
     return (
-        <div className={style.mainContent}>
-            <h1>Static Page</h1>
-            <p>Static Data: {staticData}</p>
-            <Link href="/initial-page">Back to Home</Link>
-        </div>
+        <Layout>
+            <div className={style.mainContent}>
+                <h1>Static Page</h1>
+                <p>Static Data: {staticData}</p>
+                <Link href="/initial-page">Back to Home</Link>
+            </div>
+        </Layout>
     );
 }
 
@@ -51,14 +55,16 @@ export function StaticPageProxy() {
 
     if (staticData === null) {
         return (
-            <div className={style.mainLoading}>
-                <div className={style.loading}></div>
-            </div>
-    )
-        ;
+            <Layout>
+                <div className={style.mainLoading}>
+                    <div className={style.loading}></div>
+                </div>
+            </Layout>
+        )
+            ;
     }
 
-    return <StaticPage staticData={staticData} />;
+    return <StaticPage staticData={staticData}/>;
 }
 
 export default StaticPageProxy;

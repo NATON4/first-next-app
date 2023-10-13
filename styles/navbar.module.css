@@ -1,0 +1,18 @@
+.navBar {
+    width: 100vw;
+    height: 5vh;
+    background-color: #2d2d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+}
+
+.navBar > * {
+    text-decoration: none;
+    color: white
+}
+
+.navBar > *:hover {
+    color: #752fe4;
+}

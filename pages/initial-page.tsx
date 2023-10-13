@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import style from '../styles/initial-page.module.css'
 import Image from 'next/image'
+import Layout from '../components/Layout'
+import '../styles/global.css'
 
 class Singleton {
     private static instance: Singleton | null = null;
@@ -21,37 +23,21 @@ function Page() {
     //console.log("Same instance? " + (singletonInstance === singletonInstance2));
 
     return (
-        <div className={style.mainContent}>
-            <h1 className={style.pageTitle}>Hello, Next.js!</h1>
+        <Layout>
+            <div className={style.mainContent}>
+                <h1 className={style.pageTitle}>Hello, Next.js!</h1>
                 <Image
                     src="/myImage.jpg"
                     className={style.authorImage}
                     width={0}
                     height={0}
                     sizes="20vh"
-                    style={{ width: '20vh', height: '20vh' }}
+                    style={{width: 'calc(min(25vh, 25vw))', height: 'calc(min(25vw, 25vh))'}}
                     alt="Picture of the author"
                 />
-            <p>{singletonInstance.data}</p>
-            <Link
-                href={{
-                    pathname: "/first-page/first-page-content",
-                    query: {color: "black"}
-                }}
-                title="Black">First page black
-            </Link>
-            <Link
-                href={{
-                    pathname: "/first-page/first-page-content",
-                    query: {color: "grey"}
-                }}
-                title="White">First page grey
-            </Link>
-            <Link
-                href="/first-page/static-page"
-                title="White">Static page
-            </Link>
-        </div>
+                <p>{singletonInstance.data}</p>
+            </div>
+        </Layout>
     )
 }
 

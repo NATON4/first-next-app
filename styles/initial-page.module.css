@@ -1,11 +1,15 @@
 .pageTitle {
     color: rgba(97,30,251,0.74);
     font-size: 5vh;
+    font-weight: bold;
+    padding-top: 5vh;
 }
 
 .authorImage {
     border-radius: 50%;
     box-shadow: 0 0 1vh 1vh black;
+    pointer-events: none;
+    user-select: none;
 }
 
 .red {
@@ -13,8 +17,10 @@
 }
 
 .mainContent {
+    min-height: calc(85vh);
     display: flex;
     flex-direction: column;
+    gap: 5vh;
     align-items: center;
     font-size: 2vh;
     font-family: Courier New, monospace;
